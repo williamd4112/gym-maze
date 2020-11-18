@@ -1,7 +1,7 @@
-from dataclasses import dataclass
+#from dataclasses import dataclass
 
 
-@dataclass
+#@dataclass
 class DeepMindColor:
     obstacle = (160, 160, 160)
     free = (224, 224, 224)

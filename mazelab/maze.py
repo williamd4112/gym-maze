@@ -11,7 +11,7 @@ class BaseMaze(ABC):
     def __init__(self, **kwargs):
         objects = self.make_objects()
         assert all([isinstance(obj, Object) for obj in objects])
-        self.objects = namedtuple('Objects', map(lambda x: x.name, objects), defaults=objects)()
+        self.objects = namedtuple('Objects', map(lambda x: x.name, objects))(*objects)
         
         for key, value in kwargs.items():
             setattr(self, key, value)
@@ -50,4 +50,4 @@ class BaseMaze(ABC):
         return self._convert(x, 'impassable')
     
     def __repr__(self):
-        return f'{self.__class__.__name__}{self.size}'
+        return '{}{}'.format(self.__class__.__name__, self.size)
